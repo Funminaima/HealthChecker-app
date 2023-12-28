@@ -28,4 +28,3 @@ https://github.com/Funminaima/HealthChecker-app.git
 cd HealthChecker-app
 npm install
 npm start
-
