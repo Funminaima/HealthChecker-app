@@ -2,13 +2,17 @@
 :root {
   color: #485056;
   font-family: "Montserrat", sans-serif;
+  --green: #6fcebc;
+  --white: white;
+  --offwhite: #d7dce0;
+  --shadewhite: #f0f0f0;
 }
 body {
   padding: 0;
   margin: 0;
 }
 .container {
-  background-color: #6fcebc;
+  background-color: var(--green);
   height: 100vh;
   width: 100%;
   display: flex;
@@ -20,7 +24,7 @@ body {
   height: 600px;
   padding: 20px 10px;
   text-align: center;
-  background-color: white;
+  background-color: var(--white);
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.05),
     0px 15px 35px 0px rgba(43, 64, 78, 0.1);
   display: flex;
@@ -59,9 +63,9 @@ body {
 .btn-container button {
   /* padding:  40px; */
   border-radius: 36px;
-  background-color: white;
-  color: #6fcebc;
-  border: 1px solid #d7dce0;
+  background-color: var(--white);
+  color: var(--green);
+  border: 1px solid var(--offwhite);
   font-size: 18px;
   width: 150px;
   height: 50px;
@@ -86,7 +90,7 @@ body {
   width: 30px;
   outline: none;
   border: none;
-  fill: #6fcebc;
+  fill: var(--green);
 }
 .icon3 {
   position: relative;
@@ -95,14 +99,14 @@ body {
   height: 20px;
 }
 .btn-container button:hover {
-  background-color: #6fcebc;
-  color: white;
+  background-color: var(--green);
+  color: var(--white);
 
   /* text-align: center; */
 }
 .active {
-  background-color: #6fcebc !important;
-  color: white !important;
+  background-color: var(--green) !important;
+  color: var(--white) !important;
 }
 
 footer {
@@ -112,15 +116,15 @@ footer {
 .btn {
   width: 100%;
   height: 45px;
-  color: white;
-  background-color: #6fcebc;
+  color: var(--white);
+  background-color: var(--green);
   border: none;
   font-size: 18px;
   border-radius: 4px;
   text-align: center;
 }
 .disable.btn {
-  background-color: #f0f0f0;
+  background-color: var(--shadewhite);
   color: #485056;
 }
 
@@ -133,10 +137,10 @@ footer {
   margin-bottom: 20px;
 }
 progress::-webkit-progress-bar {
-  background-color: #f0f0f0;
+  background-color: var(--shadewhite);
 }
 progress::-webkit-progress-value {
-  background-color: #6fcebc;
+  background-color: var(--green);
 }
 .outcome-text {
   text-align: start;
@@ -147,5 +151,5 @@ progress::-webkit-progress-value {
   margin-top: auto;
 }
 .link a {
-  color: #6fcebc;
+  color: var(--green);
 }

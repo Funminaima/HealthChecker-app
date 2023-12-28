@@ -59,7 +59,6 @@ const HeartBurnPage = () => {
   const handlePrevious = () => {
     // Find the index of the previous non-null response
     const previousIndex = findPreviousNonNullOriginal(currentQuestion);
-    console.log(previousIndex, "previous index");
 
     if (previousIndex !== null) {
       setCurrentQuestion(previousIndex);
@@ -149,7 +148,6 @@ const HeartBurnPage = () => {
     // storing the outcome
     const selectedOutcome = outcomes.find((o) => o.id === outcome);
     if (selectedOutcome !== undefined) {
-      console.log(`Outcome: ${selectedOutcome.text}`);
       setOutcome(selectedOutcome?.text);
     }
   };
