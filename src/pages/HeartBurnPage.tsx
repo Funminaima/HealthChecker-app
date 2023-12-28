@@ -33,7 +33,6 @@ const HeartBurnPage = () => {
   };
 
   const handleAnswer = (answerIndex: number, ans: Answer) => {
-    // Update the score for the current question based on the selected option
     const question = questions[currentQuestion];
     const newResponses = [...userResponses];
     const newScores = [...userScores];
@@ -57,15 +56,6 @@ const HeartBurnPage = () => {
     setCurrentAns(ans);
   };
 
-  //   const handlePrevious = () => {
-  //     if (currentQuestion > 0) {
-  //       setCurrentQuestion(currentQuestion - 1);
-
-  //       setSelectedOption(userResponses[currentQuestion - 1]);
-  //     } else {
-  //       alert("This is the first question");
-  //     }
-  //   };
   const handlePrevious = () => {
     // Find the index of the previous non-null response
     const previousIndex = findPreviousNonNullOriginal(currentQuestion);
@@ -88,27 +78,6 @@ const HeartBurnPage = () => {
     return null;
   };
 
-  //   const handleNext = () => {
-  //     if (currentQuestion < questions.length - 1) {
-  //       const currentQuestionData = questions[currentQuestion];
-  //       currentQuestionData.next.map((nxt) => {
-  //         if ("answered" in nxt) {
-  //           if (nxt.answered === currentAns?.id) {
-  //             setNextQuestion(nxt.next_question);
-  //           }
-  //         } else if ("next_question" in nxt) {
-  //           setNextQuestion(nxt.next_question);
-  //         } else {
-  //           return;
-  //         }
-  //       });
-  //       setCurrentQuestion(currentQuestion + 1);
-  //       setSelectedOption(userResponses[currentQuestion + 1] || null);
-  //     } else {
-  //       displayOutcome();
-  //       setShowResult(true);
-  //     }
-  //   };
   const handleNext = () => {
     const nextIndex = findNextNonNullOriginal(currentQuestion);
 
@@ -135,7 +104,7 @@ const HeartBurnPage = () => {
     }
   };
 
-  // Helper function to find the index of the next non-null response
+  // Helper function to find the index of the next non-null response on handleNext
   const findNextNonNullOriginal = (currentIndex: number): number | null => {
     for (let i = currentIndex + 1; i < userResponses.length; i++) {
       if (userResponses[i] !== null) {
@@ -155,16 +124,12 @@ const HeartBurnPage = () => {
     setCurrentAns(null);
     setNextQuestion("");
   };
-  console.log(userResponses, "user responses");
-
   console.log(totalScore, "totalscore");
-  console.log(showResult, "show result");
-  console.log(selectedOption, "selected option");
+
   const displayOutcome = () => {
     // Calculating total score and determine the outcome
     const totalScore = userScores.reduce((acc, score) => acc + score, 0);
 
-    // Determine the outcome based on the total score
     let outcome: string;
     for (const outcomeData of questions[questions.length - 1].next as Array<{
       answered?: string;
@@ -181,7 +146,7 @@ const HeartBurnPage = () => {
       }
     }
 
-    // Display the outcome
+    // storing the outcome
     const selectedOutcome = outcomes.find((o) => o.id === outcome);
     if (selectedOutcome !== undefined) {
       console.log(`Outcome: ${selectedOutcome.text}`);
